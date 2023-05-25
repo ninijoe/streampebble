@@ -1,0 +1,78 @@
+{% extends 'streampebble/layout.html' %}
+
+{% block title %}Sport Titles{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="mt-5 text-center text-primary" >Sport Titles</h2>
+        <ul class="list-group mt-4">
+            <li class="list-group-item">
+                <a href="{% url 'nba' %}" class="sport-link">NBA</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'nfl' %}" class="sport-link">NFL</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'nhl' %}" class="sport-link">NHL</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'mlb' %}" class="sport-link">MLB</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'mma' %}" class="sport-link">MMA</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'boxing' %}" class="sport-link">Boxing</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'cfb' %}" class="sport-link">CFB</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'ncaab' %}" class="sport-link">NCAAB</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'wwe' %}" class="sport-link">WWE</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+<style>
+    body {
+        background-color: #5c5e5f;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .mt-5 {
+        margin-top: 3rem;
+    }
+
+    .mt-4 {
+        margin-top: 2rem;
+    }
+
+    .text-primary {
+        color: #040404 !important;
+    }
+
+    .list-group-item {
+        background-color: #fff;
+        border-color: #dee2e6;
+        color: #343a40;
+    }
+
+    .sport-link {
+        color: #070707;
+        text-decoration: none;
+    }
+
+    .sport-link:hover {
+        color: #030303;
+        text-decoration: none;
+    }
+</style>
