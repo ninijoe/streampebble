@@ -5,6 +5,7 @@ from .models import SportStream
 from django.shortcuts import redirect
 from django.http import HttpResponse  # Add this line
 from datetime import datetime
+from django.http import Http404
 
 def index(request):
     # Call the update_streams function
@@ -76,8 +77,6 @@ def sport_titles(request):
     # Render a template with the sport titles
     return render(request, 'streampebble/sport_titles.html', {'sport_titles': sport_titles})
 
-
-from django.shortcuts import render
 
 def nba(request):
     url = "https://crackstreams.biz/nbastreams/"

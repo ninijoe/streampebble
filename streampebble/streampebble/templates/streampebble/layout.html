@@ -12,12 +12,23 @@
         .navbar-brand {
             font-family: 'Nickainley', cursive;
         }
+        .logo-img {
+            height: 70px; /* Adjust the height as needed */
+           
+        }
+
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'sport_titles' %}">StreamPebble</a>
-        
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'sport_titles' %}">
+               StreamPebble
+            </a>
+            <img src="{% static 'streampebble/images/logo.png' %}" alt="StreamPebble Logo" class="logo-img">
+               
+            <!-- Rest of the navbar code -->
+        </div>
         
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav flex-row">
