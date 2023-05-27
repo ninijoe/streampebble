@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from streampebble.views import sport_titles, index, nba, nfl, nhl, mlb, mma, boxing, cfb, ncaab, wwe, video_player
+from streampebble.views import sport_titles, index, nba, nfl, nhl, mlb, mma, boxing, cfb, ncaab, wwe, video_player, upcoming_games, past_games
 
 urlpatterns = [
     path('', index, name='index'),
@@ -31,6 +31,8 @@ urlpatterns = [
     path('ncaab/', ncaab, name='ncaab'),
     path('wwe/', wwe, name='wwe'),
     path('video/<str:video_url>/', video_player, name='video_player'),
+    path('upcoming-games/', upcoming_games, name='upcoming_games'),
+    path('past-games/', past_games, name='past_games'),
 
 ]
 

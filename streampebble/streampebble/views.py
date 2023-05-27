@@ -9,8 +9,43 @@ from django.http import Http404
 
 def index(request):
     # Call the update_streams function
-    return update_streams(request)
+    update_streams(request)
 
+    # Get the upcoming games within 24 hours
+    upcoming_games = SportStream.objects.filter(date_time__range=(datetime.now(), datetime.now() + timedelta(hours=24)))
+
+    context = {'upcoming_games': upcoming_games}
+
+    return render(request, 'streampebble/index.html', context)
+
+
+def upcoming_games(request):
+    # Get the current date and time
+    current_datetime = datetime.now()
+
+    # Calculate the datetime for 24 hours from now
+    upcoming_datetime = current_datetime + timedelta(hours=24)
+
+    # Query the upcoming games from the database
+    upcoming_games = SportStream.objects.filter(date_time__range=(current_datetime, upcoming_datetime))
+
+    context = {'upcoming_games': upcoming_games}
+
+    return render(request, 'streampebble/layout.html', context)
+
+def past_games(request):
+    # Get the current date and time
+    current_datetime = datetime.now()
+
+    # Calculate the datetime for 24 hours ago
+    past_datetime = current_datetime - timedelta(hours=24)
+
+    # Query the past games from the database
+    past_games = SportStream.objects.filter(date_time__range=(past_datetime, current_datetime))
+
+    context = {'past_games': past_games}
+
+    return render(request, 'streampebble/layout.html', context)
 
 
 def update_streams(request):
